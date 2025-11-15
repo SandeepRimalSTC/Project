@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horaa Esports Giveaway</title>
+  <link rel="stylesheet" href="Project3.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="Logo Horaa.png" id="img" alt="Horaa Logo" />
+      <h1>Horaa Esports</h1>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav>
+      <ul>
+        <li><a href="Project3.html">Home</a></li>
+        <li><a href="Join.html" class="active">Giveaway</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <form action="http://kijinoparagon.github.io/Testing/FormTester" method="GET" class="join-form">
+
+      <h2>Horaa Esports Giveaway Entry</h2>
+
+      <fieldset>
+        <legend>Player Information</legend>
+
+        <label for="ign">In-Game Name (IGN):</label>
+        <input type="text" id="ign" name="ign" required>
+
+        
+        <label for="uid">PUBG UID:</label>
+        <input type="number" id="uid" name="uid" required>
+
+        
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+      </fieldset>
+
+
+      <fieldset>
+        <legend>Fan Engagement</legend>
+
+        <label for="follow">Do you follow us on social media?</label>
+        <select id="follow" name="follow" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+       
+        <label for="moment">Your favorite Horaa Esports moment:</label>
+        <textarea id="moment" name="moment" rows="4" placeholder="Tell us your favorite clutch, stream moment, tournament, or why you support us..." required></textarea>
+
+        <label for="email">Email (for contacting winners):</label>
+        <input type="email" id="email" name="email" required>
+
+      </fieldset>
+
+      <button type="submit">Submit Entry</button>
+      <button type="reset" style="margin-top:10px; background:#333;">Reset Form</button>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sandy. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
