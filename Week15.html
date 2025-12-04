@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Element Creator</title>
+    <link rel="stylesheet" href="Week15.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>DOM Element Creator</h1>
+        
+        <div class="controls">
+            <div class="input-group">
+                <label>Element Type:</label>
+                <select id="elementType">
+                    <option value="p">Paragraph (p)</option>
+                    <option value="h1">Header (h1)</option>
+                    <option value="h3">Sub-header (h3)</option>
+                    <option value="div">Container (div)</option>
+                    <option value="button">Button</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Text Content:</label>
+                <input type="text" id="elementText" placeholder="Hello World!">
+            </div>
+
+            <div class="input-group">
+                <label>Background Color:</label>
+                <input type="color" id="bgColor" value="#e0e0e0">
+            </div>
+
+            <div class="input-group">
+                <label>Font Color:</label>
+                <input type="color" id="fontColor" value="#000000">
+            </div>
+
+            <button id="createBtn">Create Element</button>
+        </div>
+
+        <hr>
+
+        <h2>Output Area:</h2>
+        <div id="outputContainer"></div>
+    </div>
+
+    <script src="Week15.js"></script>
+</body>
+</html>
