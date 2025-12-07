@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Creator</title>
+    <link rel="stylesheet" href="Project4.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Sandeep</div>
+
+        <nav class="side-nav" id="js-side-nav">
+            <a href="Project4.html">Home</a>
+            <a href="Form.html">DOM Creator</a>
+            <a href="Change.html">Squad</a>
+        </nav>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </header>
+
+    <main class="main-content">
+        <h1>DOM Element Creator</h1>
+        
+        <div class="controls-box">
+            <div class="input-group">
+                <label for="elementType">Element Type:</label>
+                <select id="elementType">
+                    <option value="p">Paragraph (p)</option>
+                    <option value="h1">Header (h1)</option>
+                    <option value="h3">Sub-header (h3)</option>
+                    <option value="div">Container (div)</option>
+                    <option value="button">Button</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="elementText">Text Content:</label>
+                <input type="text" id="elementText" placeholder="Hello World!">
+            </div>
+
+            <div class="input-group">
+                <label for="bgColor">Background Color:</label>
+                <input type="color" id="bgColor" value="#ffffff">
+            </div>
+
+            <div class="input-group">
+                <label for="fontColor">Font Color:</label>
+                <input type="color" id="fontColor" value="#000000">
+            </div>
+
+            <button id="createBtn" class="action-btn">Create Element</button>
+        </div>
+
+        <hr style="margin: 30px 0; border-color: rgba(255,255,255,0.2);">
+
+        <h2>Output Area:</h2>
+        <div id="outputContainer"></div>
+    </main>
+
+    <script src="Project4.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* ============================
+   RESET & GLOBAL
+============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Main Purple Gradient Background */
+    background: linear-gradient(135deg, #a450e6, #8e44ad, #d187f5);
+    min-height: 100vh;
+    color: white;
+}
+
+/* ============================
+   HEADER & NAV
+============================ */
+header {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Desktop Nav */
+.side-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.side-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.side-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Mobile Nav Toggle */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.hamburger-line {
+    width: 28px;
+    height: 3px;
+    background: white;
+    margin: 4px 0;
+    border-radius: 4px;
+}
+
+/* Mobile Layout Logic */
+@media (max-width: 768px) {
+    .hamburger { display: flex; }
+    
+    .side-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100vh;
+        background: #2c0e3a;
+        flex-direction: column;
+        padding-top: 80px;
+        transition: 0.3s;
+        z-index: 10;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+
+    .side-nav.active { left: 0; }
+    
+    .side-nav a {
+        width: 100%;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+}
+
+/* ============================
+   MAIN CONTENT
+============================ */
+.main-content {
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 10px 0;
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 14px;
+    
+}
+   
+}
+
+/* ============================
+   DOM CREATOR STYLES (Week14.html)
+============================ */
+.controls-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    text-align: left;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
+    max-width: 500px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input[type="text"],
+.input-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.input-group input[type="color"] {
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #555;
+    transform: scale(1.02);
+}
+
+#outputContainer {
+    min-height: 100px;
+    padding: 20px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    color: black;
+    margin-top: 20px;
+}
+
+/* ============================
+   SQUAD CARD STYLES (Change.html)
+============================ */
+.squad-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 30px 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.player-img {
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.player-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.player-role {
+    font-size: 1rem;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+.social-icon:hover { transform: scale(1.1); background: white; }
+.fa-youtube { color: #ff0000; }
+.fa-facebook-f { color: #1877f2; }
+.fa-instagram { color: #e4405f; }
