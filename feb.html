@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Surprises For You ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CORE STYLES --- */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* --- FLOATING HEARTS BACKGROUND --- */
+        .bg-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .heart-bg {
+            position: absolute;
+            bottom: -100px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 2rem;
+            animation: floatUp 10s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-1000px) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- GLASS CONTAINER --- */
+        .container {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            transition: transform 0.3s ease;
+        }
+
+        h1 {
+            color: #d32f2f;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* --- GIFT BOX GRID --- */
+        .gift-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gift-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            position: relative;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-box:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Closed State */
+        .lid {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            transition: transform 0.5s ease;
+        }
+        
+        .box-label {
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        /* Opened State Content (Hidden initially) */
+        .gift-content {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gift-content img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .gift-quote {
+            font-size: 0.9rem;
+            color: #444;
+            font-style: italic;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- PROPOSAL SCREEN (Hidden initially) --- */
+        #proposal-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .big-gif {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        #yesBtn { background: #ff4d6d; color: white; box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4); }
+        #noBtn { background: white; color: #ff4d6d; border: 2px solid #ff4d6d; }
+
+        /* --- SUCCESS SCREEN --- */
+        #success-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-hearts" id="bg-hearts"></div>
+
+    <div class="container">
+        
+        <div id="gift-screen">
+            <h1>Pick a Gift! 🎁</h1>
+            <p>Open them to see what's inside...</p>
+            
+            <div class="gift-grid">
+                
+                <div class="gift-box" onclick="openBox(1, this)">
+                    <div class="lid">🌹</div>
+                    <div class="box-label">For Beauty</div>
+                    
+                    <div class="gift-content">
+                        <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Roses">
+                        <div class="gift-quote">"Flowers fade, but you bloom forever."</div>
+                    </div>
+                </div>
+
+                <div class="gift-box" onclick="openBox(2, this)">
+                    <div class="lid">🧸</div>
+                    <div class="box-label">For Hugs</div>
+                    
+                    <div class="gift-content">
+                        <img src="https://media.giphy.com/media/fvN5KrNcQRpMg/giphy.gif" alt="Teddy">
+                        <div class="gift-quote">"Sending you a bear hug!"</div>
+                    </div>
+                </div>
+
+                <div class="gift-box" onclick="openBox(3, this)">
+                    <div class="lid">🍫</div>
+                    <div class="box-label">For Sweetness</div>
+                    
+                    <div class="gift-content">
+                        <img src="https://media.giphy.com/media/3oxHQpNKD07fP651Ys/giphy.gif" alt="Choco">
+                        <div class="gift-quote">"You are sweeter than chocolate."</div>
+                    </div>
+                </div>
+
+                <div class="gift-box" style="background: #fff0f3;" onclick="triggerProposal()">
+                    <div class="lid">❓</div>
+                    <div class="box-label">Final Surprise</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="proposal-screen">
+            <img class="big-gif" src="https://media.tenor.com/ivKWdfdbV3EAAAAi/bear-kiss-bear-kisses.gif" alt="Asking">
+            <h1>Will you be my Girlfriend?</h1>
+            <div class="btn-group">
+                <button id="yesBtn">Yes!</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+
+        <div id="success-screen">
+            <img class="big-gif" src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Happy">
+            <h1>Yay! I Love You! ❤️</h1>
+            <p>Best Valentine Ever!</p>
+        </div>
+
+    </div>
+
+    <script>
+        // --- LOGIC FOR GIFT BOXES ---
+        function openBox(id, element) {
+            // Hide the lid and label
+            element.querySelector('.lid').style.display = 'none';
+            element.querySelector('.box-label').style.display = 'none';
+            
+            // Show the content (Image + Quote)
+            const content = element.querySelector('.gift-content');
+            content.style.display = 'flex';
+            
+            // Disable clicking again
+            element.onclick = null;
+            element.style.cursor = 'default';
+        }
+
+        function triggerProposal() {
+            // Hide gift screen, show proposal screen
+            document.getElementById('gift-screen').style.display = 'none';
+            document.getElementById('proposal-screen').style.display = 'flex';
+        }
+
+        // --- LOGIC FOR THE PROPOSAL BUTTONS ---
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const noTexts = ["Are you sure?", "Please?", "Don't do this!", "Last chance!", "I'm sad now :("];
+        let clickCount = 0;
+
+        noBtn.addEventListener('click', () => {
+            clickCount++;
+            // Increase Yes Size
+            const currentSize = 1.1 + (clickCount * 0.5);
+            yesBtn.style.fontSize = `${currentSize}rem`;
+            
+            // Change No Text
+            if(clickCount < noTexts.length) {
+                noBtn.innerText = noTexts[clickCount];
+            }
+        });
+
+        yesBtn.addEventListener('click', () => {
+            document.getElementById('proposal-screen').style.display = 'none';
+            document.getElementById('success-screen').style.display = 'flex';
+            
+            // Launch Confetti/Hearts
+            createHearts(50);
+        });
+
+        // --- BACKGROUND HEARTS GENERATOR ---
+        function createHearts(count) {
+            const container = document.getElementById('bg-hearts');
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-bg');
+                heart.innerHTML = Math.random() > 0.5 ? '❤️' : '🌹';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 5 + 5 + 's';
+                heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+                container.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 10000);
+            }
+        }
+
+        // Start background loop
+        setInterval(() => createHearts(3), 500);
+
+    </script>
+</body>
+</html>
